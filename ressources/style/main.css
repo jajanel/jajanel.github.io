@@ -1,0 +1,42 @@
+/* faire un site de thème de couleur rose avec une police segoe et une image logo à gauche et le nav bar à droite avec le h1 centré */
+
+/* Path: ressources/style/main.css */
+.header {
+    background-color: #FFC0CB;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.navbar a:hover {
+    color: #FF69B4;
+}
+
+.logo {
+    position:  relative;
+    width: 15px;
+    height: 15px;
+    margin: 0 20px;
+
+
+}
