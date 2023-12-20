@@ -1,56 +1,54 @@
 "use strict";
-animationTexteConsole(['Bienvenue', 'blblblbbl :)'], 'text',['azure']);
 
-/**
- * Fonction qui permet d'afficher le texte lettre par lettre dans un style de console.
- * @param motAffiches mots affichés
- * @param id id de l'élément html
- * @param colors couleurs utilisées
- */
-function animationTexteConsole(motAffiches, id, colors) {
-    let visible = true;
-    let con = document.getElementById('texteConsole');
-    let letterCount = 1;
-    let x = 1;
-    let waiting = false;
-    let target = document.getElementById(id);
-    target.setAttribute('style', 'color:' + colors[0]);
-    window.setInterval(function() {
+const phrases = ["Bienvenue sur mon site", "Je suis Janelle"];
 
-        if (letterCount === 0 && waiting === false) {
-            waiting = true;
-            target.innerHTML = motAffiches[0].substring(0, letterCount);
-            window.setTimeout(function() {
-                let usedColor = colors.shift();
-                colors.push(usedColor);
-                let usedWord = motAffiches.shift();
-                motAffiches.push(usedWord);
-                x = 1;
-                target.setAttribute('style', 'color:' + colors[0])
-                letterCount += x;
-                waiting = false;
-            }, 1000)
+function animationTexteConsole(motAffiches, id) {
+    let indexMot = 0;
+    let indexLettre = 0;
+    let lettreVisible = true;
+    const idTexteConsole = document.getElementById(id);
+    const con = document.getElementById('texteConsole'); // Assuming 'texteConsole' is the ID of your underscore element
 
-        } else if (letterCount === motAffiches[0].length + 1 && waiting === false) {
-            waiting = true;
-            window.setTimeout(function() {
-                x = -1;
-                letterCount += x;
-                waiting = false;
-            }, 1000)
-
-        } else if (waiting === false) {
-            target.innerHTML = motAffiches[0].substring(0, letterCount)
-            letterCount += x;
+    function afficherLettre() {
+        if (indexMot < motAffiches.length) {
+            if (indexLettre < motAffiches[indexMot].length) {
+                idTexteConsole.textContent += motAffiches[indexMot].charAt(indexLettre);
+                indexLettre++;
+                setTimeout(afficherLettre, 100);
+            } else {
+                indexLettre = 0;
+                indexMot++;
+                setTimeout(effacerLettre, 2000);
+            }
+        } else {
+            indexMot = 0; // Réinitialiser pour afficher en boucle
+            setTimeout(afficherLettre, 1000); // Attendre avant de recommencer
         }
-    }, 200)
+    }
+
+    function effacerLettre() {
+        if (idTexteConsole.textContent.length > 0) {
+            idTexteConsole.textContent = idTexteConsole.textContent.slice(0, -1);
+            setTimeout(effacerLettre, 50);
+        } else {
+            if (indexMot >= motAffiches.length) {
+                indexMot = 0;
+            }
+            setTimeout(afficherLettre, 500);
+        }
+    }
+
     window.setInterval(function() {
-        if (visible === true) {
+        if (lettreVisible === true) {
             con.className = 'console-underscore hidden';
-            visible = false;
+            lettreVisible = false;
         } else {
             con.className = 'console-underscore';
-            visible = true;
+            lettreVisible = true;
         }
-    }, 400)
+    }, 400);
+
+    afficherLettre();
 }
+
+animationTexteConsole(phrases, "text");

@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(-45deg, #DC8665, #138086, #947bb9, #CD7672, #EEB462);
+    background: linear-gradient(130deg,#138086,#947bb9, #de7d8d);
     background-size: 600% 600%;
     animation: gradient 20s ease infinite;
     height: 100vh;
@@ -8,39 +8,25 @@ body {
 @keyframes gradient {
     0% {
         background-position: 0 50%;
-    } 25%
-
-    {
+    }
+    50% {
         background-position: 100% 50%;
-    } 50%
-
-    {
-        background-position: 50% 100%;
-    } 75%
-
-    {
-        background-position: 50% 0%;
-    } 100%
-
-    {
+    }
+    100% {
         background-position: 0 50%;
     }
 }
 
 
-.hidden {
-    opacity:0;
-}
 .console-container {
-
     font-family: "Krona One", sans-serif;
-    font-size:4em;
+    font-size:46px;
     text-align:center;
     height:200px;
-    width:600px;
+    width:900px;
     display:block;
     position:absolute;
-    color:white;
+    color: #ffffff;
     top:0;
     bottom:0;
     left:0;
@@ -52,5 +38,8 @@ body {
     position:relative;
     top:-0.14em;
     left:10px;
+}
+.hidden {
+    opacity:0;
 }
 
