@@ -1,42 +1,56 @@
-/* faire un site de thème de couleur rose avec une police segoe et une image logo à gauche et le nav bar à droite avec le h1 centré */
+body {
+    background: linear-gradient(-45deg, #DC8665, #138086, #947bb9, #CD7672, #EEB462);
+    background-size: 600% 600%;
+    animation: gradient 20s ease infinite;
+    height: 100vh;
+}
 
-/* Path: ressources/style/main.css */
-.header {
-    background-color: #FFC0CB;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    } 25%
+
+    {
+        background-position: 100% 50%;
+    } 50%
+
+    {
+        background-position: 50% 100%;
+    } 75%
+
+    {
+        background-position: 50% 0%;
+    } 100%
+
+    {
+        background-position: 0 50%;
+    }
 }
 
 
-h1 {
-    text-align: center;
+.hidden {
+    opacity:0;
+}
+.console-container {
+
+    font-family: "Krona One", sans-serif;
+    font-size:4em;
+    text-align:center;
+    height:200px;
+    width:600px;
+    display:block;
+    position:absolute;
+    color:white;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+}
+.console-underscore {
+    display:inline-block;
+    position:relative;
+    top:-0.14em;
+    left:10px;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 30%;
-}
-
-.navbar a {
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-}
-
-.navbar a:hover {
-    color: #FF69B4;
-}
-
-.logo {
-    position:  relative;
-    width: 15px;
-    height: 15px;
-    margin: 0 20px;
-
-
-}
