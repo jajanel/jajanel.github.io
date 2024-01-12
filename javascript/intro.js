@@ -1,13 +1,13 @@
 "use strict";
 
-const phrases = ["Bienvenue sur mon site", "Je suis Janelle"];
+const phrases = ["Bienvenue sur mon site", "Je suis Janelle !"];
 
 function animationTexteConsole(motAffiches, id) {
     let indexMot = 0;
     let indexLettre = 0;
     let lettreVisible = true;
     const idTexteConsole = document.getElementById(id);
-    const con = document.getElementById('texteConsole'); // Assuming 'texteConsole' is the ID of your underscore element
+    const con = document.getElementById('texteConsole');
 
     function afficherLettre() {
         if (indexMot < motAffiches.length) {
@@ -37,6 +37,7 @@ function animationTexteConsole(motAffiches, id) {
             setTimeout(afficherLettre, 500);
         }
     }
+
 
     window.setInterval(function() {
         if (lettreVisible === true) {
